@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Xbox 360 Emulator</title>
-  </head>
-  <body>
-    <canvas id="canvas" width="1280" height="720"></canvas>
-    <script type="module" src="main.js"></script>
-  </body>
-</html>
+package com.yourpackage;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        WebView webView = new WebView(this);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("file:///android_asset/index.html");
+        setContentView(webView);
+    }
+}
